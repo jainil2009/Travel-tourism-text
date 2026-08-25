@@ -1,0 +1,359 @@
+FILE: index.html (Complete Production Source Code)
+Smart Travel & Tourism Web Portal | Self-Contained HTML5, CSS3 & JavaScript Blueprint
+<!DOCTYPE html>
+<html lang="gu">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Smart Travel & Tourism Portal | Explore & Plan</title>
+ <style>
+ :root {
+ --primary: #0f766e;
+ --primary-dark: #115e59;
+ --accent: #f59e0b;
+ --bg: #f8fafc;
+ --card-bg: #ffffff;
+ --text: #0f172a;
+ --muted: #475569;
+ }
+ [data-theme="dark"] {
+ --bg: #0f172a;
+ --card-bg: #1e293b;
+ --text: #f8fafc;
+ --muted: #cbd5e1;
+ }
+ * { box-sizing: border-box; margin: 0; padding: 0; }
+ body { 
+ font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; 
+ background: var(--bg); 
+ color: var(--text); 
+ transition: background 0.3s ease, color 0.3s ease; 
+ line-height: 1.6;
+ }
+ /* Navigation Header */
+ nav { 
+ background: var(--card-bg); 
+ padding: 1rem 5%; 
+ display: flex; 
+ justify-content: space-between; 
+ align-items: center; 
+ position: sticky; 
+ top: 0; 
+ box-shadow: 0 2px 10px rgba(0,0,0,0.1); 
+ z-index: 1000; 
+ }
+ .logo { 
+ font-size: 1.4rem; 
+ font-weight: bold; 
+ color: var(--primary); 
+ display: flex;
+ align-items: center;
+ gap: 8px;
+ }
+ .nav-links { 
+ display: flex; 
+ gap: 1.2rem; 
+ list-style: none; 
+ align-items: center; 
+ }
+ .nav-links a { 
+ text-decoration: none; 
+ color: var(--text); 
+ font-weight: 600; 
+ font-size: 0.95rem; 
+ transition: color 0.2s;
+ }
+ .nav-links a:hover {
+ color: var(--primary);
+ }
+ .btn-toggle { 
+ background: var(--accent); 
+index.html - Source Code Document 
+border: none; 
+ padding: 6px 14px; 
+ border-radius: 20px; 
+ cursor: pointer; 
+ color: white; 
+ font-weight: bold; 
+ font-size: 0.85rem;
+ transition: transform 0.2s;
+ }
+ .btn-toggle:hover {
+ transform: scale(1.05);
+ }
+ /* Hero Section */
+ .hero { 
+ background: linear-gradient(rgba(15, 118, 110, 0.82), rgba(15, 118, 110, 0.82)), 
+ url('https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=1200') center/cover; 
+ color: white; 
+ text-align: center; 
+ padding: 90px 20px; 
+ }
+ .hero h1 { 
+ font-size: 2.8rem; 
+ margin-bottom: 12px; 
+ letter-spacing: -0.5px;
+ }
+ .hero p { 
+ font-size: 1.2rem; 
+ opacity: 0.95;
+ max-width: 600px;
+ margin: 0 auto;
+ }
+ /* Layout Containers */
+ .container { 
+ max-width: 1100px; 
+ margin: 0 auto; 
+ padding: 40px 20px; 
+ }
+ section {
+ margin-bottom: 45px;
+ }
+ section h2 {
+ font-size: 1.6rem;
+ color: var(--primary);
+ margin-bottom: 15px;
+ display: flex;
+ align-items: center;
+ gap: 8px;
+ }
+ .grid { 
+ display: grid; 
+ grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+ gap: 20px; 
+ margin-top: 15px; 
+ }
+ .card { 
+ background: var(--card-bg); 
+ padding: 22px; 
+ border-radius: 8px; 
+ box-shadow: 0 4px 6px rgba(0,0,0,0.05); 
+ border-top: 4px solid var(--primary); 
+ transition: transform 0.2s ease, box-shadow 0.2s ease;
+ }
+ .card:hover {
+ transform: translateY(-4px);
+ box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+ }
+ .card h3 { 
+ color: var(--primary); 
+ margin-bottom: 10px; 
+ font-size: 1.2rem;
+ }
+ /* Widgets & Form Elements */
+index.html - Source Code Document 
+.planner-box, .booking-form { 
+ background: var(--card-bg); 
+ border: 1px solid #cbd5e1; 
+ padding: 25px; 
+ border-radius: 8px; 
+ box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+ }
+ label {
+ font-weight: 600;
+ font-size: 0.9rem;
+ color: var(--text);
+ }
+ input, select, textarea { 
+ width: 100%; 
+ padding: 11px; 
+ margin: 8px 0 18px 0; 
+ border: 1px solid #cbd5e1; 
+ border-radius: 6px; 
+ background: var(--bg); 
+ color: var(--text); 
+ font-size: 0.95rem;
+ }
+ .btn-submit { 
+ background: var(--primary); 
+ color: white; 
+ padding: 12px 20px; 
+ border: none; 
+ border-radius: 6px; 
+ cursor: pointer; 
+ font-size: 1rem; 
+ font-weight: bold;
+ width: 100%; 
+ transition: background 0.2s;
+ }
+ .btn-submit:hover { 
+ background: var(--primary-dark); 
+ }
+ /* Floating WhatsApp Button */
+ .whatsapp-btn { 
+ position: fixed; 
+ bottom: 25px; 
+ right: 25px; 
+ background: #25d366; 
+ color: white; 
+ border-radius: 50px; 
+ padding: 12px 22px; 
+ text-decoration: none; 
+ font-weight: bold; 
+ box-shadow: 0 4px 12px rgba(0,0,0,0.25); 
+ z-index: 1000; 
+ display: flex;
+ align-items: center;
+ gap: 8px;
+ transition: transform 0.2s;
+ }
+ .whatsapp-btn:hover {
+ transform: scale(1.05);
+ }
+ /* Footer */
+ footer { 
+ background: #0f172a; 
+ color: white; 
+ text-align: center; 
+ padding: 35px 20px; 
+ margin-top: 50px; 
+ }
+ </style>
+</head>
+<body>
+ <!-- Main Navigation -->
+ <nav>
+ <div class="logo"> Smart Tour Gujarat</div>
+ <ul class="nav-links">
+index.html - Source Code Document 
+<li><a href="#about">dવિશે</a></li>
+ <li><a href="#planner">ટૂ ર પ્લાનર</a></li>
+ <li><a href="#destinations">સ્થળો</a></li>
+ <li><a href="#booking">બુકિંગ</a></li>
+ <li><a href="#emergency">ઇમરજન્સી</a></li>
+ <li><button class="btn-toggle" onclick="toggleTheme()"> Theme</button></li>
+ </ul>
+ </nav>
+ <!-- Hero Header -->
+ <header class="hero">
+ <h1 id="hero-title">અદ્ભુત ગુજરાત અને ભારત dનહાળો</h1>
+ <p>તમારા પ્રવિાસનું સરળ, સુરeક્ષિત અને સ્માટર્ટ પ્લાનંગ કિરો.</p>
+ </header>
+ <!-- Main Container -->
+ <div class="container">
+ <!-- About Section -->
+ <section id="about">
+ <h2> પcરચય (Introduction)</h2>
+ <p style="background: var(--card-bg); padding: 18px; border-left: 4px solid var(--primary); border-radius: 4px;">
+ પ્રવિાસ અને પયર્ટટન એ સંસ્કૃdત, લોકિો અને સ્થળોને ેડતી અદ્ભુત કિડી છે. આ પોટર્ટલનો મુખ્ય હે તુ પ્રવિાસીઓને સ્થાdનકિ માdહતી, લાઈવિ ટૂ લ્સ અને કિટોકિટીની સેવિાઓ એકિ જ જગ્યાએ પૂરી પાડવિાનો છે.
+ </p>
+ </section>
+ <!-- Interactive Planner Section -->
+ <section id="planner">
+ <h2> સ્માટર્ટ બજેટ અને આઇcટનરરી કિે લ્ક્યુલેટર</h2>
+ <div class="planner-box">
+ <label for="persons">મુસાફરોની સંખ્યા (Persons):</label>
+ <input type="number" id="persons" value="1" min="1" onchange="calculateBudget()" onkeyup="calculateBudget()">
+ <label for="days">cદિવિસોની સંખ્યા (Days):</label>
+ <input type="number" id="days" value="2" min="1" onchange="calculateBudget()" onkeyup="calculateBudget()">
+ <label for="category">પ્રવિાસનો પ્રકિાર (Category):</label>
+ <select id="category" onchange="calculateBudget()">
+ <option value="2000">બજેટ (Budget Tour - ₹2000/day per person)</option>
+ <option value="4500">સ્ટેન્ડડર્ટ (Standard - ₹4500/day per person)</option>
+ <option value="8000">લક્ઝરી (Luxury - ₹8000/day per person)</option>
+ </select>
+ <h3 style="margin-top:15px; color:var(--text);">અંદિાeજત કિુ લ ખચર્ટ: <span id="total-cost" style="color:var(--accent); 
+font-weight:bold; font-size:1.4rem;">₹4,000</span></h3>
+ </div>
+ </section>
+ <!-- Destination & Weather Section -->
+ <section id="destinations">
+ <h2> પ્રખ્યાત પ્રવિાસન સ્થળો & લાઈવિ વિેધર</h2>
+ <div class="grid">
+ <div class="card">
+ <h3>સ્ટેચ્યુ ઓફ યુdનટી (Kevadia)</h3>
+ <p>dવિશ્વની સૌથી ઊંચી પ્રdતમા. ેવિાલાયકિ: વિેલી ઓફ ફ્લાવિસર્ટ, ગ્લો ગાડર્ટન.</p>
+ <p style="margin-top:10px; font-size:0.9rem;"><strong>હવિામાન:</strong> 29°C (સામાન્ય)</p>
+ <p style="font-size:0.9rem;"><strong>ઉત્તમ સમય:</strong> ઓક્ટોબર થી માચર્ટ</p>
+ </div>
+ <div class="card">
+ <h3>=ગર રાષ્ટ્રીય ઉદ્યાન (Sasan Gir)</h3>
+ <p>એeશયાઈ સંહોનું એકિમાત્ર dનવિાસસ્થાન. વિાઇલ્ડલાઇફ અને સફારી અનુભવિ.</p>
+ <p style="margin-top:10px; font-size:0.9rem;"><strong>હવિામાન:</strong> 27°C (અનુકિૂ ળ)</p>
+ <p style="font-size:0.9rem;"><strong>ઉત્તમ સમય:</strong> નવિેમ્બર થી માચર્ટ</p>
+ </div>
+ <div class="card">
+ <h3>કિચ્છનું સફે દિ રણ (Rann of Kutch)</h3>
+ <p>રણોત્સવિ, સંસ્કૃdત અને સફે દિ રણની અદ્ભુત ચાંદિની રાત.</p>
+ <p style="margin-top:10px; font-size:0.9rem;"><strong>હવિામાન:</strong> 24°C (સારી ઠં ડી)</p>
+ <p style="font-size:0.9rem;"><strong>ઉત્તમ સમય:</strong> નવિેમ્બર થી ફે બ્રુઆરી</p>
+ </div>
+ </div>
+ </section>
+ <!-- Booking Form Section -->
+ <section id="booking">
+ <h2> બુકિંગ / ઈન્ક્વિાયરી ફોમર્ટ</h2>
+index.html - Source Code Document 
+<form class="booking-form" onsubmit="handleFormSubmit(event)">
+ <label for="fullname">પૂરું નામ:</label>
+ <input type="text" id="fullname" required placeholder="તમારું પૂરું નામ લખો">
+ <label for="phone">મોબાઇલ નંબર:</label>
+ <input type="tel" id="phone" required pattern="[0-9]{10}" placeholder="10 અંકિનો મોબાઇલ નંબર">
+ <label for="destination-select">પસંદિગીનું સ્થળ:</label>
+ <select id="destination-select">
+ <option>સ્ટેચ્યુ ઓફ યુdનટી</option>
+ <option>=ગર સોમનાથ / સાસણ =ગર</option>
+ <option>કિચ્છ રણોત્સવિ</option>
+ <option>અન્ય (પ્રકિીણર્ટ)</option>
+ </select>
+ <button class="btn-submit" type="submit">ઇન્ક્વિાયરી મોકિલો</button>
+ </form>
+ </section>
+ <!-- Emergency Helpline Section -->
+ <section id="emergency">
+ <h2> ઇમરજન્સી હે લ્પલાઇન નંબસર્ટ</h2>
+ <div class="grid">
+ <div class="card" style="border-top-color:#ef4444;">
+ <h3 style="color:#ef4444;">ટૂ cરઝમ હે લ્પલાઇન</h3>
+ <p>ટોલ ફ્રી નંબર: <strong>1800 233 7957</strong></p>
+ <p style="font-size:0.85rem; color:var(--muted); margin-top:5px;">24x7 પ્રવિાસી માગર્ટદિશર્ટન અને સહાયતા</p>
+ </div>
+ <div class="card" style="border-top-color:#ef4444;">
+ <h3 style="color:#ef4444;">પોeલસ & એમ્બ્યુલન્સ</h3>
+ <p>પોeલસ કિં ટ્રોલ રૂમ: <strong>112 / 100</strong></p>
+ <p>મેcડકિલ એમ્બ્યુલન્સ: <strong>108</strong></p>
+ </div>
+ </div>
+ </section>
+ </div>
+ <!-- Floating WhatsApp Support -->
+ <a href="https://wa.me/919876543210" class="whatsapp-btn" target="_blank" title="Chat on WhatsApp">
+ WhatsApp મદિદિ
+ </a>
+ <!-- Footer -->
+ <footer>
+ <p>© 2026 Smart Tourism Portal. તમામ હક્કો અનામત છે.</p>
+ <p style="font-size:0.85rem; color:#94a3b8; margin-top:6px;">પ્રવિાસ કિરો જવિાબદિારી સાથે, સ્થાdનકિ સંસ્કૃdત અને પ્રકિૃ dતનું જતન કિરો.</p>
+ </footer>
+ <!-- JavaScript Logic -->
+ <script>
+ // Dark/Light Theme Switcher
+ function toggleTheme() {
+ const body = document.body;
+ if (body.getAttribute('data-theme') === 'dark') {
+ body.removeAttribute('data-theme');
+ } else {
+ body.setAttribute('data-theme', 'dark');
+ }
+ }
+ // Dynamic Budget Calculation Logic
+ function calculateBudget() {
+ const personsInput = document.getElementById('persons').value;
+ const daysInput = document.getElementById('days').value;
+ const persons = personsInput > 0 ? parseInt(personsInput) : 1;
+ const days = daysInput > 0 ? parseInt(daysInput) : 1;
+ const rate = parseInt(document.getElementById('category').value);
+ const total = persons * days * rate;
+ document.getElementById('total-cost').innerText = '₹' + total.toLocaleString('hi-IN');
+ }
+ // Form Submission Handling
+ function handleFormSubmit(event) {
+index.html - Source Code Document 
+event.preventDefault();
+ const name = document.getElementById('fullname').value;
+ alert('ધન્યવિાદિ ' + name + '! તમારી ઈન્ક્વિાયરી સફળતાપૂવિર્ટકિ મોકિલાઈ ગઈ છે. અમારી ટીમ ટૂં કિ સમયમાં સંપકિર્ટ કિરશે.');
+ }
+ </script>
+</body>
+</html>
+index.html - Source Code Document 
